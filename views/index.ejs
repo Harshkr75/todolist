@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Name</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="box" id="heading">
+    <h1><%= ListTitle %></h1>
+    </div>
+
+
+    <div class="box">
+        <% newListItem.forEach(function(item){ %>
+            <form action="/delete" method="POST" >
+            <div class="item">
+                <input type="checkbox" name="Checkbox" value= "<%= item._id %>" onChange="this.form.submit()">
+                <p><%= item.newItem %></p>
+                </div>
+                <input type="hidden" value="<%= ListTitle %>" name="ListName"></input>
+            </form>
+       <% }) %>
+
+   <form class="item" action="/" method="POST">
+    <input type="text" placeholder="New Item" name="newItem">
+    <button type="submit" name="listType" value="<%= ListTitle %>" >+</button>
+    </form>
+
+    </div>
+
+    <footer>copywrite: Harsh Kumar</footer>
+
+
+
+   
+    
+</body>
+</html>
